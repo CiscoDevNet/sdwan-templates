@@ -1,4 +1,9 @@
 {% macro deviceType() -%}
+{% set ControllerTypeList = [
+  "vmanage",
+  "vsmart"
+  ]
+%}
 {% set vEdgeTypeList = [
     "vedge-5000",
     "vedge-cloud",
@@ -7,9 +12,7 @@
     "vedge-100",
     "vedge-100-B",
     "vedge-100-WM",
-    "vedge-100-M",
-    "vmanage",
-    "vsmart"
+    "vedge-100-M"
     ]
 %}
 {% set cEdgeTypeList = [
@@ -51,6 +54,8 @@
     {% set deviceTypeList = vEdgeTypeList %}
   {%- elif 'cEdge' in item['deviceType'] %}
     {% set deviceTypeList = cEdgeTypeList %}
+  {%- elif 'controllers' in item['deviceType'] %}
+    {% set deviceTypeList = ControllerTypeList %}
   {%- else %}
     {% set deviceTypeList = item['deviceType'] %}
   {% endif %}
