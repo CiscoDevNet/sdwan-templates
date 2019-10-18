@@ -53,10 +53,11 @@
     {
       "templateName": "{{item["banner"]}}",
       "templateType": "banner"
-    },
+    }{%- if 'snmp' in item %},
     {
       "templateName": "{{item["snmp"]}}",
       "templateType": "snmp"
     }
+    {% endif -%}
   ]
 }
