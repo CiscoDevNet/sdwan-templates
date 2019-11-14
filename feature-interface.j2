@@ -127,7 +127,7 @@
              },
              "color": {
                  "value": {{ insertParameter(item,"colorValue") }},
-                 "restrict": {{ insertParameter(item,"colorRestric") }}
+                 "restrict": {{ insertParameter(item,"colorRestric","node-only") }}
              },
              "carrier": {{ insertParameter(item,"tunnelCarrier") }},
              "bind": {
@@ -215,7 +215,7 @@
                  ]
              }
          },
-         "nat": {{ insertParameter(item,"nat") }},
+         "nat": {{ insertParameter(item,"nat","node-only") }},
          "arp": {
              "ip": {
                  "vipType": "ignore",
@@ -235,7 +235,7 @@
                     "grp-id": {{ insertParameter(vip,"grpID") }},
                     "priority": {{ insertParameter(vip,"priority") }},
                     "timer": {{ insertParameter(vip,"timer") }},
-                    "track-omp": {{ insertParameter(vip,"trackOMP") }},
+                    "track-omp": {{ insertParameter(vip,"trackOMP","node-only") }},
                     "track-prefix-list": {{ insertParameter(vip,"trackPrefixList") }},
                     "ipv4": {
                         "address": {{ insertParameter(vip,"address") }}
@@ -266,10 +266,7 @@
                  "grp-id"
              ]
          },
-         "dot1x": {
-             "vipType": "ignore",
-             "vipObjectType": "node-only"
-         }
+         "dot1x": {{ insertParameter(vip,"dot1x","node-only") }}
     }
 
 

@@ -1,6 +1,6 @@
-{% macro insertParameter(item,parameter) -%}
+{% macro insertParameter(item,parameter,vipObjectType="object") -%}
 {%- set return = {} %}
-{% set _ = return.__setitem__("vipObjectType", "object" ) %}
+{% set _ = return.__setitem__("vipObjectType", vipObjectType ) %}
 {%- if parameter in item %}
 {%- if 'variableName' in item[parameter] %}
 {% set _ = return.__setitem__("vipType","variableName") %}

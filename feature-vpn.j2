@@ -14,7 +14,7 @@
            "ecmp-hash-key": {
                "layer4": {{ insertParameter(item,"ecmpLayer4") }}
            },
-           "tcp-optimization": {{ insertParameter(item,"tcpOptimization") }},
+           "tcp-optimization": {{ insertParameter(item,"tcpOptimization","node-only") }},
            {% if "primaryDNS" in item %}
            "dns": {
                "vipType": "constant",
