@@ -74,7 +74,7 @@
 {% for route in  item["staticRoutes"]  %}
                 {
                   "prefix": {{ insertParameter(route,"prefix") }},
-                  "vipOptional":true,
+                  "vipOptional":{{ route['optional'] | default(false) | to_json }},
                   "next-hop":{
                     "vipType":"constant",
                     "vipValue":[

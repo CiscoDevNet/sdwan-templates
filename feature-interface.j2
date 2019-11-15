@@ -240,7 +240,7 @@
                     "ipv4": {
                         "address": {{ insertParameter(vip,"address") }}
                     },
-                    "vipOptional": true,
+                    "vipOptional": {{ vip['optional'] | default(false) | to_json }},
                     "priority-order": [
                         "grp-id",
                         "priority",

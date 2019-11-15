@@ -25,7 +25,13 @@
                   "vpn": {{ insertParameter(server,"vpn") }},
                   "source-interface": {{ insertParameter(server,"sourceInterface") }},
                   "priority": {{ insertParameter(server,"priority") }},
-                  "vipOptional": {{ server['optional'] | default(false) | to_json }}
+                  "vipOptional": {{ server['optional'] | default(false) | to_json }},
+                  "priority-order": [
+                    "name",
+                    "vpn",
+                    "source-interface",
+                    "priority"
+                ]
                }{%- if not loop.last %},{% endif -%}
 {% endfor %}
               ],
