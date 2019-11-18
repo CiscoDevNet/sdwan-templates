@@ -124,7 +124,18 @@
                    "vipValue": [
                     {% for p in  item["ompAdvertise"]  %}
                     {
-                        "protocol": {{ insertParameter(p,"protocol") }}
+                        "priority-order": [
+                            "protocol",
+                            "protocol-sub-type"
+                        ],
+                        "protocol": {{ insertParameter(p,"protocol") }}{%- if "globalValue" in p.protocol and p.protocol.globalValue =="ospf" %},
+                        "protocol-sub-type": {
+                            "vipType": "constant",
+                            "vipValue": "external",
+                            "vipObjectType": "object"
+                        }
+                        {% endif -%}
+
                     }{%- if not loop.last %},{% endif -%}
                     {% endfor %}
                    ],
